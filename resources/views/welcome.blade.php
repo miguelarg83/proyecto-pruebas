@@ -3,19 +3,28 @@
 @section('content')
 
 <div class="container">
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form method="POST" action="{{ route('store') }}">
         @csrf
         <div class="row justify-content-center">
             <div class="col-2">
                 <legend>Inicio</legend>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="inicio" id="si">
+                    <input class="form-check-input" type="radio" name="inicio" value="si" id="si">
                     <label class="form-check-label" for="si">
                         Si
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="inicio" id="no" checked>
+                    <input class="form-check-input" type="radio" name="inicio" value="no" id="no" checked>
                     <label class="form-check-label" for="no">
                         No
                     </label>
@@ -26,13 +35,13 @@
                 {{-- crea un margen a la izquierda de la columna como si hubiera un div de tres columnas --}}
                 <legend>Subscripción</legend>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="suscripcion" id="si">
+                    <input class="form-check-input" type="radio" name="suscripcion" value="si" id="si">
                     <label class="form-check-label" for="si">
                         Si
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="suscripcion" id="no" checked>
+                    <input class="form-check-input" type="radio" name="suscripcion" value="no" id="no" checked>
                     <label class="form-check-label" for="no">
                         No
                     </label>
@@ -44,6 +53,7 @@
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </div>
+    </form>
 </div>
 
 @endsection
