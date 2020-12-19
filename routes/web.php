@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/pruebas', 'PruebaController@index');
-Route::post('/pruebas', 'PruebaController@store')->name('store');
+Route::get('/pruebas', [App\Http\Controllers\PruebaController::class, 'index']);
+Route::post('/pruebas', [App\Http\Controllers\PruebaController::class, 'index'])->name('store');
 
