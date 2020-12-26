@@ -10,6 +10,24 @@ class Category extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email' , 'alias' , 'web' , 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
     //$category->parent
     public function parent()
     {
@@ -20,5 +38,17 @@ class Category extends Model
     public function categories()
     {
         return $this->hasMany('App\Models\Category','parent_id');
+    }
+
+    // $categoria->user
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // $categoria->products
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }
