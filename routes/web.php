@@ -25,3 +25,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/pruebas', [App\Http\Controllers\PruebaController::class, 'index']);
 Route::post('/pruebas', [App\Http\Controllers\PruebaController::class, 'index'])->name('store');
 
+// tabla-data-tabla
+Route::view('/data-table', 'data-table');
+// Botones de la tabla para editar
+Route::view('/producto/{name}','productos.show')->name('producto.show');
+Route::view('/producto/{id}','productos.edit')->name('producto.edit');
+// tabla-data-tabla
+
+// form-producto
+// form-producto

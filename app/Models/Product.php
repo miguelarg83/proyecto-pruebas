@@ -10,11 +10,15 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable=[
-
+        
     ];
 
     protected $hidden=[
 
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:m-d-Y | h:i:s',
     ];
 
     //$producto->category
