@@ -1,5 +1,5 @@
 <button type="button" wire:click="alertDeleteChecked" class="btn btn-danger">Eliminar {{ count($selected) }} registros</button>
-{{-- <button type="button" wire:click="$emit('deleteChecked',{{ count($selected) }}" class="btn btn-danger">Eliminar  {{ count($selected)  }} registros</button> --}}
+<a style="text-decoration: none;" href="{{ route('productos.create') }}"><button type="button" class="btn btn-success">Crear Nuevo Producto</button></a>
 
 @push('scripts')
 

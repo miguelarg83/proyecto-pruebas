@@ -68,8 +68,8 @@ class ProductsTable extends LivewireDatatable
                 ->label('Fecha de Creación')
                 ->filterable(),
             //Column::delete(),
-            Column::callback(['id', 'nombre'], function ($id, $name) {
-                return view('table-actions', ['id' => $id, 'name' => $name]);
+            Column::callback(['id'], function ($id) {
+                return view('table-actions', ['id' => $id]);
             })
         ];
     }

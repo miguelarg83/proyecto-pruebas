@@ -18,19 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('/pruebas', [App\Http\Controllers\PruebaController::class, 'index']);
 Route::post('/pruebas', [App\Http\Controllers\PruebaController::class, 'index'])->name('store');
 
 // tabla-data-tabla
-Route::view('/data-table', 'data-table');
+Route::view('/data-table', 'productos/data-table')->name('productos.data-table');
 // Botones de la tabla para editar
-Route::view('/producto/{name}','productos.show')->name('producto.show');
+Route::view('/producto','productos.create')->name('productos.create');
 Route::view('/producto/{id}','productos.edit')->name('producto.edit');
 // tabla-data-tabla
 
-// form-producto
-// form-producto
