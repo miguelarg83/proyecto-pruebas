@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +23,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // View::composer(['layouts.app'], function($view) 
+        // {
+        //     if(auth()->user())
+        //     {
+        //         $image=auth()->user()->images->first();
+        //         $view->with(compact('image'));
+        //     }
+        // });
     }
 }

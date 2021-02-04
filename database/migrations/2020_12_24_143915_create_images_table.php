@@ -16,7 +16,8 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->unsignedTinyInteger('orden');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

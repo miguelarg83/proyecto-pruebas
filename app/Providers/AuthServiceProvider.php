@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Image;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('eliminar-actualizar-logo', function (User $user, Image $photo) {
+            return $user->id === $photo->user_id;
+        });
     }
 }
